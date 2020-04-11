@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<html>
+
+<head>
+
+  <script>
+    $.ajax({
+      url: '/get_blog/',
+      data: {
+
+      },
+      dataType: 'json',
+      success: function (data) {
+        for (i in data) {
+          var blog = data[i]["blog"]
+          var username = data[i]["username"]
+          $('#adil_table').append(`<tr><td>${username}</td><td>${blog}</td></tr>`);
+
+        }
+
+      }
+    });
+  </script>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 30px;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    .post_btn {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 0px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 10px 2px;
+      cursor: pointer;
+      height: 40px;
+      border-radius: 5%;
+
+
+
+    }
+
+    :hover.post_btn {
+      background-color: blue;
+
+    }
+
+    .flex {
+      display: flex;
+      justify-content: center;
+      justify-content: space-between
+    }
+
+    .center {
+      justify-content: center;
+      font-family: Arial, Helvetica, sans-serif;
+      color: gray;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex">
+    <h2 class="center">Welcome To Blogs</h2>
+    <a href="logout">
+      <button class="post_btn">LOGOUT</button>
+  </div> </a>
+
+  <div class="create">
+    <h2 class="center"></h2>
+    <a href="create">
+      <button class="post_btn">+ create post</button>
+  </div> </a>
+
+
+  <table id="adil_table">
+    <tr>
+      <th>UserName</th>
+      <th> Blog</th>
+
+    </tr>
+  </table>
+
+</body>
+
+</html>

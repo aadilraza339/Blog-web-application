@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    // $("#adil_table").
+
+    $.ajax({
+      url: '/blog',
+      data: {
+
+      },
+      dataType: 'json',
+      success: function (data) {
+        console.log(data);
+
+        // for(i in data){
+        // var blog = data[i]["blog"]
+        // var username = data[i]["username"]
+        $('#adil_table').append(`<h3>${data}</h3>`);
+
+        // }
+
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <style>
+    input[type=text],
+    select {
+      width: 79%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type=submit] {
+      width: 79%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    div {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      width: 40%;
+      margin: auto
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .post_btn {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 0px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 10px 2px;
+      cursor: pointer;
+      height: 40px;
+      border-radius: 5%;
+
+
+
+    }
+
+    :hover.post_btn {
+      background-color: blue;
+
+    }
+
+    .flex {
+      display: flex;
+      justify-content: center;
+      justify-content: space-between
+    }
+
+    .center {
+      justify-content: center;
+      font-family: Arial, Helvetica, sans-serif;
+      color: gray;
+
+    }
+  </style>
+
+  <h1>The textarea form attribute</h1>
+
+  <div>
+    <form action="http://localhost:9000/blog" method="POST">
+      <label for="fname">Name</label><br>
+      <input type="text" id="fname" name="username" placeholder="Your name.." required>
+      <br><br>
+      <textarea rows="4" cols="50" name="comment">
+
+      </textarea>
+
+      <br>
+      <br>
+
+      <input type="submit" value="Submit">
+      <p>The text area above is outside the form element, but should still be a part of the form.</p>
+
+    </form>
+
+  </div>
+
+  <div class="flex">
+    <a href="/home">
+      <button class="post_btn">GO TO HOME </button>
+  </div> </a>
+
+
+</body>
+
+</html>
